@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useNavigate } from 'react-router-dom';
+import Button from './components/Button';
+import JoinGame from './components/JoinGame';
 
-function App() {
+export default function App() {
+  const navigate = useNavigate();
+
+  const onSubmit = () => {
+    navigate(`/quiz/create`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className='container mx-auto h-screen flex flex-col justify-center items-center'>
+      <h1 className='text-5xl text-primary font-bold mb-9'>Quiz Application</h1>
+      <JoinGame />
+      <div className='mb-5'>
+        <p>Or</p>
+      </div>
+      <Button
+        onClick={onSubmit}
+        label={'Create a quiz'}
+      />
+    </section>
   );
 }
-
-export default App;
